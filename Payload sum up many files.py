@@ -42,5 +42,3 @@ dfff = dff.pivot_table(dff,index=['BTS'], columns=['TIME'],aggfunc=np.sum)
 dfff.to_excel(writer,'summary')
 print(dfff.shape)
 writer.save()
-
-oss.listdir()
