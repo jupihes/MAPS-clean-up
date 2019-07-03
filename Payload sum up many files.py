@@ -13,7 +13,7 @@ from pandas import ExcelWriter
 import numpy as np
 import os as oss
 
-address = r'D:\Hesam\Python related activities\Payload sum up\Mina'
+address = r'D:\Payload sum up'
 oss.chdir(address) ## change working directory to folder we need
 l = oss.listdir(address)
 
@@ -36,7 +36,7 @@ for file_name in ['2G.xls','3G.xls', '4G_FDD.xls']:
 	#df.to_excel(writer,'3G')
 	del df, dff_temp
 
-writer = ExcelWriter(r'D:\Hesam\Python related activities\Payload sum up\Mina\all-revised-new.xlsx')
+writer = ExcelWriter(r'D:\all-revised-new.xlsx')
 dff.to_excel(writer,'all')
 dfff = dff.pivot_table(dff,index=['BTS'], columns=['TIME'],aggfunc=np.sum)
 dfff.to_excel(writer,'summary')
