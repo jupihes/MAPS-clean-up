@@ -1,5 +1,5 @@
 # MAPS-clean-up
-Sharinig on MAPS clean up scripts
+MAPS clean up scripts
 
 - Sample on payload cleaning and pivot for 2G, 3G and 4G. 
 
