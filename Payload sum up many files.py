@@ -25,6 +25,7 @@ for file_name in ['2G.xls','3G.xls', '4G_FDD.xls']:
 	df = pd.read_excel(file_name,skiprows = 1)#, sheet_name='2G') ## read excel with name = file_name 
 	df.columns = df.columns.str.upper() ## chnage all column namse to upper 
 	df['BTS'] = df[d.get(file_name)].str.extract('([A-Z][\d]{4})')  ## regex to find site ID pattern and write it in new column
+	df.loc[df['BTS'].isna() ==True, 'BTS'] = 'Not correct SiteID'
 	pay_cols = [col for col in df.columns if 'PAYLOAD' in col]
 	#print(list(df.columns))
 	print(pay_cols)
