@@ -42,4 +42,9 @@ dff.to_excel(writer,'all')
 dfff = dff.pivot_table(dff,index=['BTS'], columns=['TIME'],aggfunc=np.sum)
 dfff.to_excel(writer,'summary')
 print(dfff.shape)
+print('Payload Sums are:\n',dff.groupby('TIME').agg(sum))
+print(dff.TIME.dt.days_in_month.unique())
+for i in range(0,len(dff.TIME.dt.days_in_month.unique())):
+	print('Avg Payload/day for ',dff.TIME.dt.month_name().unique()[i],' is ', dff.groupby('TIME').agg(sum).iloc[i,0]/dff.TIME.dt.days_in_month.unique()[i])
+
 writer.save()
