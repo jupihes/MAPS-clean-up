@@ -37,6 +37,7 @@ for file_name in ['2G.xls','3G.xls', '4G_FDD.xls']:
 	#df.to_excel(writer,'3G')
 	del df, dff_temp
 
+dff.TIME = pd.to_datetime(dff.TIME) 
 writer = ExcelWriter(r'D:\all-revised-new.xlsx')
 dff.to_excel(writer,'all')
 dfff = dff.pivot_table(dff,index=['BTS'], columns=['TIME'],aggfunc=np.sum)
